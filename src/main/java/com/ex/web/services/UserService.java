@@ -2,6 +2,8 @@ package com.ex.web.services;
 
 import com.ex.web.dao.UserDao;
 import com.ex.web.models.Users;
+import com.ex.web.templates.SignupTemplate;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -197,17 +199,17 @@ public class UserService {
      * @return User object of the newly created user
      */
 //    @Override
-    public Users createAccount(String Email, String Username, String Password, String First_Name, String Last_Name) {
+    public Users createAccount(SignupTemplate st) {
         Session session = null;
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
             Users newUser = new Users();
-            newUser.setEmail(Email);
-            newUser.setPassword(Password);
-            newUser.setUsername(Username);
-            newUser.setFirst_Name(First_Name);
-            newUser.setLast_Name(Last_Name);
+            newUser.setEmail(st.getEmail());
+            newUser.setPassword(st.getPassword());
+            newUser.setUsername(st.getUsername());
+            newUser.setFirst_Name(st.getFirstName());
+            newUser.setLast_Name(st.getLastName());
             session.save(newUser);
             session.getTransaction().commit();
             return newUser;
