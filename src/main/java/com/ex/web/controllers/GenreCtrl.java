@@ -4,6 +4,9 @@ package com.ex.web.controllers;
 import com.ex.web.models.Genres;
 import com.ex.web.services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -16,9 +19,10 @@ public class GenreCtrl {
     	this.genreService = genreService;
     }
     
-    @GetMapping("/genres")
-    public List<Genres> getAllGenres(){
-        return genreService.getAllGenres();
+    @GetMapping(path="/genres",produces=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<List<Genres>> getAllGenres(){
+        return new ResponseEntity<>(genreService.getAllGenres(),HttpStatus.OK);
     }
 
 }

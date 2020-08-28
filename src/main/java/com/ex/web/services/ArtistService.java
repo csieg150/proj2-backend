@@ -1,26 +1,32 @@
 package com.ex.web.services;
 
-import com.ex.web.dao.ArtistDao;
+//import com.ex.web.dao.ArtistDao;
 import com.ex.web.models.Artists;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class ArtistService implements ArtistDao {
+@Repository
+@Transactional
+public class ArtistService {
 
 
     private SessionFactory sessionFactory;
 
+    @Autowired
     public ArtistService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
 
-    @Override
+//    @Override
     public List<Artists> getAllArtists() {
         Session session = sessionFactory.openSession();
         String hql = "FROM Artists";
@@ -29,7 +35,7 @@ public class ArtistService implements ArtistDao {
         return foundArtists;
     }
 
-    @Override
+//    @Override
     public int getArtistIdByArtist(String Artist_Name) {
         Artists foundArtist;
         Session session = sessionFactory.openSession();
@@ -41,7 +47,7 @@ public class ArtistService implements ArtistDao {
         return foundArtist.getArtist_Id();
     }
 
-    @Override
+//    @Override
     public String getArtistById(int Artist_Id) {
         Artists foundArtist;
         Session session = sessionFactory.openSession();

@@ -3,6 +3,8 @@ package com.ex.web.controllers;
 import com.ex.web.models.Users;
 import com.ex.web.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,9 +23,13 @@ public class LoginCtrl {
     }
     
     @RequestMapping(value = "/validate",method = RequestMethod.POST)
-    public ModelAndView validateUsr(@RequestParam("username")String username, @RequestParam("password")String password) {
+    public ResponseEntity<Boolean> validateUsr(@RequestParam("username")String username, @RequestParam("password")String password) {
         String msg = "";
         Users user = userService.login(username, password);
-        return new ModelAndView("result", "output", msg);
+        if(user == null) {
+        	 return new ResponseEntity<>(new Boolean(false), HttpStatus.BAD_REQUEST);
+        } else {
+        	return new ResponseEntity<>(new Boolean(true), HttpStatus.OK);
+        }        
     }
 }

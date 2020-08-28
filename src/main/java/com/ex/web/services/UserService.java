@@ -9,13 +9,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-
-public class UserService implements UserDao {
+@Repository
+@Transactional
+public class UserService {
 
     private SessionFactory sessionFactory;
 
-
+    @Autowired
     public UserService(SessionFactory sf) {
         this.sessionFactory = sf;
     }
@@ -25,7 +29,7 @@ public class UserService implements UserDao {
      * @param Password -User's entered password
      * @return Users object which includes email, password, first name, and last name
      */
-    @Override
+//    @Override
     public Users login(String Username, String Password) {
         Session session = sessionFactory.openSession();
         Criteria cr = session.createCriteria(Users.class);
@@ -41,7 +45,7 @@ public class UserService implements UserDao {
      * @param User_Id -User Id that is going to be used to parse the database
      * @return Users object based on the User Id provided
      */
-    @Override
+//    @Override
     public Users getById(int User_Id) {
         Session session = null;
         Users foundUser = null;
@@ -66,7 +70,7 @@ public class UserService implements UserDao {
      * @param Username User username that is going to be used to parse the database
      * @return Users object based on the username provided
      */
-    @Override
+//    @Override
     public Users getByUsername(String Username) {
         Session session = null;
         Users foundUser = null;
@@ -96,7 +100,7 @@ public class UserService implements UserDao {
      * @param Username User username that is going to be used to parse the database
      * @return User Id based on the username provided
      */
-    @Override
+//    @Override
     public int getUserIdByUsername(String Username) {
         Session session = null;
         Users foundUsers = null;
@@ -126,7 +130,7 @@ public class UserService implements UserDao {
      * @param User_Id User id that is going to be used to parse the database
      * @return Username based on the user id provided
      */
-    @Override
+//    @Override
     public String getUsernameByUserId(int User_Id) {
         Session session = null;
         Users foundUsers = null;
@@ -157,7 +161,7 @@ public class UserService implements UserDao {
      * @param Email   New User email
      * @return int of 0 if email is successfully changed or a 1 if it does not change
      */
-    @Override
+//    @Override
     public int updateEmail(int User_Id, String Email) {
         Session session = null;
         try {
@@ -192,7 +196,7 @@ public class UserService implements UserDao {
      * @param Last_Name  New User's last name
      * @return User object of the newly created user
      */
-    @Override
+//    @Override
     public Users createAccount(String Email, String Username, String Password, String First_Name, String Last_Name) {
         Session session = null;
         try {

@@ -4,21 +4,27 @@ import com.ex.web.dao.GenreDao;
 import com.ex.web.models.*;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenreService implements GenreDao {
+@Repository
+@Transactional
+public class GenreService {
 
 
     private SessionFactory sessionFactory;
 
+    @Autowired
     public GenreService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
 
-    @Override
+//    @Override
     public List<Genres> getAllGenres() {
         Session session = null;
         List<Genres> foundGenres = new ArrayList<>();
@@ -42,7 +48,7 @@ public class GenreService implements GenreDao {
         return foundGenres;
     }
 
-    @Override
+//    @Override
     public int getGenreIdByGenre(String Genre_Name) {
         Session session = null;
         Genres foundGenres = null;
@@ -68,7 +74,7 @@ public class GenreService implements GenreDao {
         return foundGenres.getGenre_Id();
     }
 
-    @Override
+//    @Override
     public String getGenreById(int Genre_Id) {
         Session session = null;
         Genres foundGenres = null;
