@@ -34,7 +34,7 @@ public class LoginCtrl {
         if(user == null) {
         	 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
-        	String name = user.getFirst_Name() + user.getLast_Name();
+        	String name = user.getFirst_Name() + " " + user.getLast_Name();
         	return new ResponseEntity<>(name, HttpStatus.OK);
         }        
     }
@@ -45,7 +45,7 @@ public class LoginCtrl {
     	if(user == null) {
        	 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
        } else {
-       	String name = user.getFirst_Name() + user.getLast_Name();
+       	String name = user.getFirst_Name() + " " + user.getLast_Name();
        	return new ResponseEntity<>(name, HttpStatus.CREATED);
        }
     }
