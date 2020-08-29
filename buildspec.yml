@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Entering build phase...
       - echo Build started on `date`
-      - mvn clean package
+      - mvn package
   post_build:
     commands:
       - echo Build successful
