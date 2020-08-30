@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Yeah just go to url/project/api/greetings</h2>
 </body>
 </html>
