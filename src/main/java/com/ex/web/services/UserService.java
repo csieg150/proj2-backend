@@ -226,5 +226,32 @@ public class UserService {
         }
         return null;
     }
+    
+    /** @param userId  Id of User to delete
+     *  @return 'true' if user successfully deleted, 'false' if not
+     */
+    public boolean deleteUser(int userId) {
+    	Users newUser = this.getById(userId);
+    	if(newUser == null) {
+    		return false;
+    	}
+    	Session session = null;
+    	try {
+    		session = sessionFactory.getCurrentSession();
+    		session.delete(newUser);
+    		session.getTransaction().commit();
+    		return true;
+    	} catch (HibernateException hex) {
+            hex.printStackTrace();
+            if (session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    	return false;
+    }
 
 }
