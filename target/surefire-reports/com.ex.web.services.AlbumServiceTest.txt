@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.ex.web.services.AlbumServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 115.445 s <<< FAILURE! - in com.ex.web.services.AlbumServiceTest
+testGetAllAlbums(com.ex.web.services.AlbumServiceTest)  Time elapsed: 18.678 s  <<< ERROR!
+org.hibernate.HibernateException: No CurrentSessionContext configured!
+	at com.ex.web.services.AlbumServiceTest.testGetAllAlbums(AlbumServiceTest.java:31)
+
+testGetAlbumsByGenre(com.ex.web.services.AlbumServiceTest)  Time elapsed: 16.76 s  <<< FAILURE!
+junit.framework.ComparisonFailure: Got Genre by ID expected:<[Aladdin Sane]> but was:<[Bowie pop]>
+	at com.ex.web.services.AlbumServiceTest.testGetAlbumsByGenre(AlbumServiceTest.java:36)
+
+testGetAlbumById(com.ex.web.services.AlbumServiceTest)  Time elapsed: 16.097 s  <<< FAILURE!
+junit.framework.ComparisonFailure: Got album by ID expected:<[The Eminem Show]> but was:<[Eminem rap]>
+	at com.ex.web.services.AlbumServiceTest.testGetAlbumById(AlbumServiceTest.java:51)
+

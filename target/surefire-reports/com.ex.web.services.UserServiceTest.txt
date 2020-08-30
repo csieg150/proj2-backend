@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.ex.web.services.UserServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 115.086 s <<< FAILURE! - in com.ex.web.services.UserServiceTest
+testCreateAccount(com.ex.web.services.UserServiceTest)  Time elapsed: 16.215 s  <<< FAILURE!
+junit.framework.ComparisonFailure: Created user expected:<[Panchhi]> but was:<[navpanchhi@gmail.com]>
+	at com.ex.web.services.UserServiceTest.testCreateAccount(UserServiceTest.java:66)
+

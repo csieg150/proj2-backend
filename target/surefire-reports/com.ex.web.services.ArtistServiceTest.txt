@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ex.web.services.ArtistServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.508 s - in com.ex.web.services.ArtistServiceTest

@@ -11,7 +11,6 @@ com\ex\web\controllers\ArtistCtrl.class
 com\ex\web\ORMConfig.class
 com\ex\web\services\AlbumService.class
 com\ex\web\controllers\GenreCtrl.class
-com\ex\web\GreetingsController.class
 com\ex\web\Main.class
 com\ex\web\dao\UserDao.class
 com\ex\web\models\Albums.class

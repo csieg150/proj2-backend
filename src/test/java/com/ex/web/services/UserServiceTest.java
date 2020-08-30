@@ -64,11 +64,11 @@ public class UserServiceTest extends TestCase {
             userService.deleteUser(userService.getUserIdByUsername("NavPan"));
         }
             assertEquals("Created user", userService.createAccount(new SignupTemplate(
-            		"navpanchhi@gmail.com",
                     "NavPan",
                     "Navjot12345",
                     "Navjot",
-                    "Panchhi"
+                    "Panchhi",
+                    "navpanchhi@gmail.com"
             		)
             ).getEmail(), "navpanchhi@gmail.com");
             //userService.deleteUserById(userService.getUserIdByUsername("NavPan"));

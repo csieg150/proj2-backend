@@ -1,0 +1,5 @@
+com\ex\web\services\ArtistServiceTest.class
+com\ex\web\services\AlbumServiceTest.class
+com\ex\web\services\HibernateUtil.class
+com\ex\web\services\UserServiceTest.class
+com\ex\web\services\GenreServiceTest.class

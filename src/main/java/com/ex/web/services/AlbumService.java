@@ -20,16 +20,22 @@ public class AlbumService {
         this.sessionFactory = sf;
     }
 
+    /** @return Returns a list of all albums
+     * */
 //    @Override
     @Transactional
     public List<Albums> getAllAlbums() {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.openSession();
         String hql = "FROM Albums";
         Query query = session.createQuery(hql);
         List<Albums> foundAlbums = query.list();
         return foundAlbums;
     }
 
+    /** 
+     * @param Genre_Id Genre ID to search by 
+     * @return Returns a list of all albums with a matching Genre ID
+     * */
 //    @Override
     @Transactional
     public List<Albums> getAlbumsByGenre(int Genre_Id) {
@@ -58,6 +64,10 @@ public class AlbumService {
         return null;
     }
 
+    /** 
+     * @param Artist_Id Artist ID to search by
+     * @return Returns a list of all albums with a matching Artist ID
+     * */
 //    @Override
     @Transactional
     public List<Albums> getAlbumsByArtist(int Artist_Id) {
@@ -86,6 +96,10 @@ public class AlbumService {
         return null;
     }
 
+    /** 
+     * @param Album_Title Title to search by
+     * @return Returns a list of all albums with a matching Title
+     * */
 //    @Override
     @Transactional
     public List<Albums> getAlbumsByTitle(String Album_Title) {
@@ -114,6 +128,10 @@ public class AlbumService {
         return null;
     }
 
+    /** 
+     * @param Album_Id Album ID to search by
+     * @return Returns a list of all albums with a matching Album ID
+     * */
 //    @Override
     @Transactional
     public Albums getAlbumById(int Album_Id) {
@@ -141,6 +159,10 @@ public class AlbumService {
         return foundAlbums;
     }
 
+    /** 
+     * @param Album_Id Album ID to search by
+     * @return Returns a description from the album with a matching ID, or null if ID is invalid
+     * */
 //    @Override
     @Transactional
     public String getAlbumDescription(int Album_Id) {
@@ -163,6 +185,10 @@ public class AlbumService {
         return foundDescription.getDescription();
     }
 
+    /** 
+     * @param Album_Id Album ID to search by
+     * @return Returns a float representing the album's price, or null if ID is invalid
+     * */
 //    @Override
     @Transactional
     public float getPriceByAlbumId(int Album_Id){
