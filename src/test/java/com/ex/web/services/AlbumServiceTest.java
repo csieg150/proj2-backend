@@ -33,7 +33,7 @@ public class AlbumServiceTest extends TestCase {
 
     @Test
     public void testGetAlbumsByGenre() {
-        assertEquals("Got Genre by ID", albumService.getAlbumsByGenre(1).get(0).getAlbum_Title(),"Bowie pop" );
+        assertEquals("Got Genre by ID", albumService.getAlbumsByGenre(1).get(0).getAlbum_Title(),"Aladdin Sane" );
     }
 
     @Test
@@ -43,12 +43,12 @@ public class AlbumServiceTest extends TestCase {
 
     @Test
     public void testGetAlbumsByTitle() {
-        assertEquals("Got album by title", albumService.getAlbumsByTitle("Aladdin Sane").get(0).getAlbum_Title(), "Aladdin Sane");
+        assertEquals("Got album by  title", albumService.getAlbumsByTitle("Aladdin Sane").get(0).getAlbum_Title(), "Aladdin Sane");
     }
 
     @Test
     public void testGetAlbumById() {
-        assertEquals("Got album by ID", albumService.getAlbumById(1).getAlbum_Title(), "Eminem rap");
+        assertEquals("Got album by ID", albumService.getAlbumById(1).getAlbum_Title(), "The Eminem Show");
     }
 
     @Test

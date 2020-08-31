@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
   <!--  load the values in this file into the environment-->
-  <context:property-placeholder location="WEB-INF/application.properties"/>
+  <context:property-placeholder location="application.properties"/>
 
   <!-- enable annotation configuration -->
   <context:annotation-config/>

@@ -7,9 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+
 import java.util.List;
 
+
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AlbumCtrl {
     private final AlbumService albumService;
 
@@ -22,7 +27,9 @@ public class AlbumCtrl {
     @ResponseBody
     public ResponseEntity<List<Albums>> getAllAlbums(){
     	
-        return new ResponseEntity<>(albumService.getAllAlbums(),HttpStatus.OK);
+//        return new ResponseEntity<>(albumService.getAllAlbums(),HttpStatus.OK);
+    	return ResponseEntity.ok().body(albumService.getAllAlbums());
+        
     }
 
 }

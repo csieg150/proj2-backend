@@ -100,7 +100,7 @@ public class UserService {
 
     /**
      * @param Username User username that is going to be used to parse the database
-     * @return User Id based on the username provided
+     * @return User Id based on the username provided, or -1 if no user found
      */
 //    @Override
     public int getUserIdByUsername(String Username) {
@@ -124,8 +124,11 @@ public class UserService {
                 session.close();
             }
         }
-
-        return foundUsers.getUser_Id();
+        
+        if(foundUsers != null) {
+        	return foundUsers.getUser_Id();
+        }
+        return -1;
     }
 
     /**
@@ -230,6 +233,7 @@ public class UserService {
     /** @param userId  Id of User to delete
      *  @return 'true' if user successfully deleted, 'false' if not
      */
+    @Transactional
     public boolean deleteUser(int userId) {
     	Users newUser = this.getById(userId);
     	if(newUser == null) {
@@ -237,7 +241,8 @@ public class UserService {
     	}
     	Session session = null;
     	try {
-    		session = sessionFactory.getCurrentSession();
+    		session = sessionFactory.openSession();
+    		session.beginTransaction();
     		session.delete(newUser);
     		session.getTransaction().commit();
     		return true;
