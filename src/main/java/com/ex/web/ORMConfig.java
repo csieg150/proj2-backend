@@ -60,8 +60,8 @@ public class ORMConfig {
     private Properties getSfProps() {
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", dbDialect);
-        props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.format_sql", "true");
+        props.setProperty("hibernate.show_sql", "false");
+        props.setProperty("hibernate.format_sql", "false");
         props.setProperty("hibernate.hbm2ddl.auto", "none");
 
         return props;

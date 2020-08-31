@@ -1,5 +1,6 @@
 package com.ex.web.controllers;
 
+import com.ex.web.models.UserResponse;
 import com.ex.web.models.Users;
 import com.ex.web.services.UserService;
 import com.ex.web.templates.LoginTemplate;
@@ -31,24 +32,22 @@ public class LoginCtrl {
     }
     
     @PostMapping
-    public ResponseEntity<String> validateUsr(@RequestBody LoginTemplate loginTemplate) {
+    public ResponseEntity<UserResponse> validateUsr(@RequestBody LoginTemplate loginTemplate) {
         Users user = userService.login(loginTemplate.getUsername(), loginTemplate.getPassword());
         if(user == null) {
         	 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
-        	String name = user.getFirst_Name() + " " + user.getLast_Name();
-        	return new ResponseEntity<>(name, HttpStatus.OK);
+        	return new ResponseEntity<>(new UserResponse(user.getFirst_Name(), user.getLast_Name()), HttpStatus.OK);
         }        
     }
     
     @PutMapping
-    public ResponseEntity<String> createUser(@RequestBody SignupTemplate signupTemplate){
+    public ResponseEntity<UserResponse> createUser(@RequestBody SignupTemplate signupTemplate){
     	Users user = userService.createAccount(signupTemplate);
     	if(user == null) {
        	 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
        } else {
-       	String name = user.getFirst_Name() + " " + user.getLast_Name();
-       	return new ResponseEntity<>(name, HttpStatus.CREATED);
+       	return new ResponseEntity<>(new UserResponse(user.getFirst_Name(), user.getLast_Name()), HttpStatus.CREATED);
        }
     }
     

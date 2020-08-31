@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ex.web.services.GenreServiceTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.652 s - in com.ex.web.services.GenreServiceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.846 s - in com.ex.web.services.GenreServiceTest
